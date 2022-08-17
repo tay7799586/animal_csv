@@ -74,10 +74,9 @@ plt.figure(figsize=(6,6),dpi=100)
 plt.imshow(wordcloud)
 plt.axis("off")
 plt.show()
+wordcloud.to_file('寵物訓練.jpg')
 
-
-
-#比較醜的
+# 比較醜的
 # Words=[]
 # for i in range(0,10):
 #     Words.append(word_counts_top10[i][0])

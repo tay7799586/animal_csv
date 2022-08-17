@@ -65,8 +65,8 @@ myfont=FontProperties(fname=r'C:\Users\howar\Desktop\msj.ttf',size=16)
 sns.set(font=myfont.get_family())
 sns.set_style("darkgrid",{"font.sans-serif":['Microsoft JhengHei']})
 
-# plt.rcParams['axes.unicode_minus'] = False
-# plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei'] 
+plt.rcParams['axes.unicode_minus'] = False
+plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei'] 
 df = pd.DataFrame([
    word_counts_top10[0],
    word_counts_top10[1],
@@ -81,10 +81,11 @@ df = pd.DataFrame([
    word_counts_top10[10],
    word_counts_top10[11]],columns=['關鍵詞', '次數'])
 
-ax = sns.barplot(x='關鍵詞', y='次數',data=df)
+ax = sns.barplot(x='關鍵詞', y='次數', data=df)
 ax.set_title('貓貓行為表現')
 plt.show()
-
+sfig = ax.get_figure()
+sfig.savefig('貓咪行為長條圖.jpg',  orientation="landscape") #儲存
 # 文字雲
 mask = np.array(Image.open('cat_behavior.jpg'))
 
@@ -95,4 +96,4 @@ plt.figure(figsize=(6,6),dpi=100)
 plt.imshow(wordcloud)
 plt.axis("off")
 plt.show()
-# wordcloud.to_file('專題貓咪.png')
+# wordcloud.to_file('貓咪行為文字雲.jpg')
